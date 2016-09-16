@@ -20,7 +20,7 @@
 # Version         : 1.0
 #USE:
 #    /direcory/to/code>python findadmin.py
-
+import os
 import httplib
 import socket
 import sys
@@ -190,7 +190,14 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin login found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0)
+                else:
+                    print "Invalid option."
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
@@ -218,7 +225,14 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin page found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0)
+                else:                                                             
+                    print "Invalid option."
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
@@ -245,7 +259,14 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin page found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0)
+		else:
+	            print "Invalid option."
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
@@ -272,7 +293,15 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin page found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0)
+                else:
+                    print "Invalid option."
+
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
@@ -299,7 +328,15 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin page found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0) 
+                else:
+                    print "Invalid option."
+
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
@@ -326,7 +363,14 @@ try:
             if response.status == 200:
                 var1 = var1 + 1
                 print "%s %s" % ( "\n\n>>>" + host, "Admin page found!")
-                raw_input("Press enter to continue scanning.\n")
+                decide=raw_input("Continue scanning? y/n :")
+                if decide == "y":
+                    continue
+                elif decide == "n":
+                    print "Saliendo."
+                    os._exit(0)
+                else:
+                    print "Invalid option."
             elif response.status == 404:
                 var2 = var2
             elif response.status == 302:
