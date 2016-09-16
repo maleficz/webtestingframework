@@ -1,6 +1,6 @@
 # TestingWeb Framework
-Un framework para realizar auditorias de seguridad web avanzadas, usando las mejores herramientas actuales junto a otras de codigo propio.
+A framework for advanced web security audits, using the best tools along with other own code.
 
-Uso:
+Usage:
 
 python2 webframework.py
