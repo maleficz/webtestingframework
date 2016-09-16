@@ -43,7 +43,7 @@ def logo():
 """
 def gems():
     print "Checking if Bundler is installed ..."
-    gem=os.system("cd joomlavs && bundle | grep 'Bundle complete! 5 Gemfile dependencies, 15 gems now installed.'")
+    gem=os.system("bundle | grep 'Bundle complete! 5 Gemfile dependencies, 15 gems now installed.'")
     if gem == 0:
         print "Bundler is installed. Continuing."
         pass
@@ -54,7 +54,7 @@ It can take a while."""
         inst = raw_input("You want to continue with the installation? y/n : ")
         if inst=="y":
             print "Installing bundler..."
-            os.system("cd joomlavs && sudo gem install bundler && bundle install")
+            os.system("sudo gem install bundler && bundle install")
             pass
         elif inst=="n":
             print "Installation canceled, this will create problems in the option d) of the menu using joomlavs. Continuing ..."

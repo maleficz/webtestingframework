@@ -12,7 +12,7 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+import os
 import subprocess
 import portsmod
 
@@ -30,14 +30,14 @@ def nickscan():
 def joomsc():
     host=host=portsmod.host()
     print "Looking for vulnerabilities on the web site with joomlavs..."
-    subprocess.call(["chmod","+x","./joomlavs/joomlavs"])
-    subprocess.call(["./joomlavs/joomlavs","-u",host,"-a"])
+    subprocess.call(["chmod","+x","joomlavs"])
+    subprocess.call(["./joomlavs","-u",host,"-a"])
     execute()
 def joomsctor():
     host=host=portsmod.host()
     print "Looking for vulnerabilities on the web site with joomlavs through TOR..."
-    subprocess.call(["chmod","+x","./joomlavs/joomlavs"])
-    subprocess.call(["./joomlavs/joomlavs","-u",host,"--proxy","SOCKS5://127.0.0.1:9050","-a"])
+    subprocess.call(["chmod","+x","joomlavs"])
+    subprocess.call(["./joomlavs","-u",host,"--proxy","SOCKS5://127.0.0.1:9050","-a"])
     execute()
 
 def wordpresscan():
