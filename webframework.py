@@ -42,23 +42,23 @@ def logo():
 		Twitter: @hanomlulzsec
 """
 def gems():
-+    print "Checking if Bundler is installed ..."
-+    gem=os.system("cd joomlavs && bundle | grep 'Bundle complete! 5 Gemfile dependencies, 15 gems now installed.'")
-+    if gem == 0:
-+        print "Bundler is installed. Continuing."
-+        pass
-+    else:
-+        print """You need to install bundler, proceeding to the installation.
-+ Bundler is required for a vulnerabilities scanner, you need root or sudo privileges to install.
-+It can take a while."""     
-+        inst = raw_input("You want to continue with the installation? y/n : ")
-+        if inst=="y":
-+            print "Installing bundler..."
-+            os.system("cd joomlavs && sudo gem install bundler && bundle install")
-+            pass
-+        elif inst=="n":
-+            print "Installation canceled, this will create problems in the option d) of the menu using joomlavs. Continuing ..."
-+            pass
+    print "Checking if Bundler is installed ..."
+    gem=os.system("cd joomlavs && bundle | grep 'Bundle complete! 5 Gemfile dependencies, 15 gems now installed.'")
+    if gem == 0:
+        print "Bundler is installed. Continuing."
+        pass
+    else:
+        print """You need to install bundler, proceeding to the installation.
+ Bundler is required for a vulnerabilities scanner, you need root or sudo privileges to install.
+It can take a while."""     
+        inst = raw_input("You want to continue with the installation? y/n : ")
+        if inst=="y":
+            print "Installing bundler..."
+            os.system("cd joomlavs && sudo gem install bundler && bundle install")
+            pass
+        elif inst=="n":
+            print "Installation canceled, this will create problems in the option d) of the menu using joomlavs. Continuing ..."
+            pass
 def disclaimer():
     print "[!] legal disclaimer: Usage of Testing Web Framework for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program"
 try:
