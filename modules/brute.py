@@ -1,5 +1,7 @@
 import os
 from bruteModules import webBrute
+from bruteModules import sshBrute
+from bruteModules import md5Hash
 
 def logo():
     os.system("clear")
@@ -17,12 +19,13 @@ def typeAtackSelection():
         """
     tipoAtaque = raw_input("Tipo de ataque: ")
     if tipoAtaque == '1':
-        webBrute.test()
+        webBrute.start()
     elif tipoAtaque == '2':
-        print "2"
+        sshBrute.test()
     elif tipoAtaque == '3':
-        print "3"
+        md5Hash.start()
     else:
         print "Wrong option"
         typeAtackSelection()
+
 typeAtackSelection()
